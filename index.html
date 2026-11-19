@@ -79,7 +79,14 @@ section{padding:110px 0}
 .cabo{position:absolute;left:47px;top:150px;bottom:40px;width:3px;border-radius:3px;background:#b9a796;overflow:hidden}
 .cabo i{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(var(--ouro),var(--energia));box-shadow:0 0 10px var(--energia)}
 .faisca{position:absolute;left:39px;width:20px;height:20px;border-radius:50%;background:radial-gradient(#fff 0 20%, var(--energia) 45%, transparent 70%);transform:translateY(-50%);top:150px}
-@media (max-width:999px){ .trilho{display:none} }
+@media (max-width:999px){
+  /* no celular: engrenagens num selo flutuante no canto e o cabo vira uma barra de energia no topo */
+  .trilho{top:auto;bottom:16px;right:14px;width:64px;height:64px;border-radius:50%;background:rgba(19,41,75,.92);box-shadow:0 8px 20px -6px rgba(0,0,0,.45)}
+  .trilho .mini{top:5px;left:8px;width:48px}
+  .cabo{position:fixed;left:0;right:0;top:0;bottom:auto;width:auto;height:3px;border-radius:0;background:rgba(185,167,150,.35)}
+  .cabo i{height:100%!important;width:0;background:linear-gradient(90deg,var(--ouro),var(--energia))}
+  .faisca{display:none}
+}
 
 /* ---------- quem somos ---------- */
 .quem .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:start}
@@ -297,7 +304,8 @@ table.mini .n{text-align:right;font-variant-numeric:tabular-nums}
 .plano li{padding:.42em 0 .42em 1.7em;position:relative;font-size:.98rem}
 .plano li::before{content:"";position:absolute;left:0;top:.95em;width:10px;height:10px;border-radius:50%;border:2px solid var(--ouro)}
 .plano .btn{align-self:flex-start}
-.plano .btn-tinta{background:var(--tinta);color:#fff}
+.btn-tinta{background:var(--tinta);color:#fff}
+.btn-tinta:hover{background:var(--tinta-2)}
 .modulos{margin-top:28px;border:1.5px dashed var(--ouro);border-radius:20px;padding:26px 32px;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap}
 .modulos p{color:var(--suave);max-width:60ch}
 .modulos strong{font-family:var(--serif);font-size:1.4rem;color:var(--tinta)}
@@ -359,6 +367,41 @@ details p{padding:0 0 22px;color:var(--suave);max-width:66ch}
 .pagto span{border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:.4em 1.1em}
 footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;padding:26px 0;text-align:center}
 
+
+/* ---------- ajustes para celular ---------- */
+@media (max-width:640px){
+  body{font-size:16px}
+  section{padding:72px 0}
+  .wrap{width:calc(100% - 36px)}
+  h2{font-size:2rem}
+  .hero{min-height:auto;padding:88px 0 64px}
+  .maquina-hero{max-width:210px;margin-bottom:6px}
+  .hero h1{font-size:2.35rem}
+  .hero p{font-size:1.05rem}
+  .hero .acoes{flex-direction:column;align-items:stretch;margin-top:1.6em}
+  .hero .acoes .btn{justify-content:center}
+  .selos{gap:8px 16px;margin-top:1.8em}
+  .vantagens li.destaque{padding:24px 22px;grid-template-columns:44px 1fr}
+  .vantagens li{grid-template-columns:44px 1fr;gap:14px}
+  .vantagens .ic{width:44px;height:44px}
+  .paleta{gap:8px;margin:26px 0 24px}
+  .tinta-btn{padding:11px 18px 11px 16px;font-size:.92rem}
+  .janela .barra span{max-width:none}
+  .preco{font-size:2.6rem}
+  .modulos .btn{width:100%;justify-content:center}
+  .plano .btn{align-self:stretch;justify-content:center}
+  table.comp{min-width:0;font-size:.9rem}
+  table.comp th,table.comp td{padding:11px 6px}
+  table.comp td:not(:first-child),table.comp th:not(:first-child){width:auto;font-size:.85rem}
+  table.comp thead th{font-size:.95rem}
+  .passos{gap:26px}
+  .passos li{padding-top:0;padding-left:62px;min-height:46px}
+  .regras li{padding:16px 0}
+  .contato{padding:84px 0 110px}
+  .contato .btn{width:100%;justify-content:center}
+  .lampada{width:74px}
+  footer.rodape{padding-bottom:96px}
+}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .btn,.tinta-btn::before{transition:none}
@@ -997,7 +1040,7 @@ function atualizar(){
     svg.querySelector(".raio").setAttribute("opacity", p > .08 ? Math.min(1, (p - .08) * 3).toFixed(2) : 0);
   });
   trilho.classList.toggle("ligado", scrollY > hero.offsetHeight * .6);
-  caboLuz.style.height = (p * 100) + "%";
+  if (innerWidth < 1000) { caboLuz.style.width = (p * 100) + "%"; } else { caboLuz.style.width = ""; caboLuz.style.height = (p * 100) + "%"; }
   faisca.style.top = (cabo.offsetTop + cabo.offsetHeight * p) + "px";
   faisca.style.opacity = p > .02 && p < .995 ? 1 : 0;
   lampada.classList.toggle("acesa", p > .93);
