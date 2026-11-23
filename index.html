@@ -368,6 +368,30 @@ details p{padding:0 0 22px;color:var(--suave);max-width:66ch}
 footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;padding:26px 0;text-align:center}
 
 
+
+/* pilares (quem somos) */
+.pilares{list-style:none;background:var(--tinta);border-radius:22px;padding:30px 30px;display:flex;flex-direction:column;gap:24px;color:#fff;position:relative;overflow:hidden}
+.pilares::after{content:"";position:absolute;right:-90px;bottom:-90px;width:190px;height:190px;border-radius:50%;border:20px dashed rgba(212,162,58,.14)}
+.pilares li{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:center;position:relative;z-index:1}
+.pilares .ic{width:52px;height:52px;border-radius:50%;background:var(--ouro);display:grid;place-items:center}
+.pilares .ic svg{width:26px;height:26px;stroke:var(--tinta);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.pilares b{display:block;font-family:var(--serif);font-size:1.2rem;color:var(--ouro-claro);font-weight:600}
+.pilares small{color:rgba(255,255,255,.8);font-size:.95rem}
+/* ícone dos planos */
+.plano-ic{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:#EEF1F6;margin-bottom:18px}
+.plano-ic svg{width:28px;height:28px;stroke:var(--tinta);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.plano.estrela .plano-ic{background:rgba(212,162,58,.18)}
+.plano.estrela .plano-ic svg{stroke:var(--ouro)}
+/* ícone nas etapas */
+.passos li{padding-top:84px}
+.passos li::before{width:30px;height:30px;font-size:.95rem;top:46px;left:46px;background:var(--tinta);z-index:1}
+.passo-ic{position:absolute;top:0;left:0;width:68px;height:68px;border-radius:50%;background:rgba(212,162,58,.14);border:2px solid var(--ouro);display:grid;place-items:center}
+.passo-ic svg{width:30px;height:30px;stroke:var(--ouro);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.passos li:not(:last-child)::after{top:34px;left:82px}
+@media (max-width:640px){
+  .passos li{padding-top:0;padding-left:88px;min-height:68px}
+  .pilares{padding:24px 22px}
+}
 /* ---------- ajustes para celular ---------- */
 @media (max-width:640px){
   body{font-size:16px}
@@ -395,7 +419,7 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
   table.comp td:not(:first-child),table.comp th:not(:first-child){width:auto;font-size:.85rem}
   table.comp thead th{font-size:.95rem}
   .passos{gap:26px}
-  .passos li{padding-top:0;padding-left:62px;min-height:46px}
+  .passos li{padding-top:0;padding-left:88px;min-height:68px}
   .regras li{padding:16px 0}
   .contato{padding:84px 0 110px}
   .contato .btn{width:100%;justify-content:center}
@@ -428,8 +452,8 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
 <section class="hero" id="inicio">
   <div class="wrap">
     <div>
-      <h1>Juntos, construímos algo maior e único para cada um.</h1>
-      <p>O Moneta Lab é um estúdio de criação de sistemas financeiros e de propostas para MEI, ME e EPP. Tudo feito sob medida e instalado na sua conta Google.</p>
+      <h1>Juntos, construímos algo maior e único para você.</h1>
+      <p>O Moneta Lab é um estúdio de criação de sistemas de gestão para MEI, ME e EPP. Tudo feito sob medida e instalado na sua conta Google.</p>
       <div class="acoes">
         <a class="btn btn-ouro wpp" href="#contato">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
@@ -459,15 +483,15 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
   <div class="wrap">
     <div class="texto">
       <h2>Quem somos</h2>
-      <p>O Moneta Lab é um estúdio pequeno, de atendimento próximo. Nossos sistemas nasceram dentro de uma empresa de serviços de verdade, para resolver problemas do dia a dia: saber quanto tem em conta, o que vence hoje, quanto cada serviço rendeu e como mandar uma proposta bonita para o cliente.</p>
-      <p>Depois de ver isso funcionando, decidimos levar a mesma organização para outros pequenos negócios. Cada sistema parte de uma base sólida e testada, e ganha as cores, a marca e o jeito de trabalhar de quem vai usar.</p>
+      <p>O Moneta Lab é um estúdio de desenvolvimento com atendimento próximo ao cliente. Nossos sistemas nasceram na rotina real de uma empresa de serviços, para atender às necessidades do dia a dia: acompanhar o saldo, controlar os vencimentos, conhecer o resultado de cada serviço e enviar uma proposta personalizada para cada cliente.</p>
+      <p>Hoje, levamos essa mesma organização a outros pequenos negócios. Cada sistema parte de uma base sólida e testada e é adaptado à marca e à forma de trabalhar de cada empresa.</p>
       <p class="lema">Aqui você não compra um programa pronto de prateleira. A gente constrói junto com você.</p>
     </div>
-    <aside class="historia">
-      <h3>Por que "Moneta"?</h3>
-      <p>Na Roma antiga, as moedas eram fabricadas no templo da deusa Juno Moneta. Foi desse nome que nasceram as palavras "moeda", em português, e "money", em inglês.</p>
-      <p>E "Lab" porque somos um laboratório de criação: cada projeto é uma peça única, feita sob medida.</p>
-    </aside>
+    <ul class="pilares">
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M9 11h.01M12 11h.01M15 11h.01"/></svg></span><div><b>Atendimento próximo</b><small>Você fala direto com quem desenvolve.</small></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-1.2-1-1.4-1-2.5 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.1-4-7.5-9-7.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="7.8" r="1"/></svg></span><div><b>Feito sob medida</b><small>O sistema se adapta à sua rotina.</small></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Testado na prática</b><small>Nasceu e funciona numa empresa real.</small></div></li>
+    </ul>
   </div>
 </section>
 
@@ -478,23 +502,23 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
     <ul class="vantagens">
       <li class="destaque">
         <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2.1 0 2.9 6 1.4 6 4.3 0 1.2-1.3 2.1-3 2.1-1.4 0-2.6-.6-3-1.6M12 6.5v11"/></svg></span>
-        <div><h3>Sem mensalidade</h3><p>Você paga uma vez e o sistema é seu. Nada de boleto todo mês para continuar usando.</p></div>
+        <div><h3>Sem mensalidade</h3><p>Pagamento único. O sistema passa a ser seu, sem cobranças mensais.</p></div>
       </li>
       <li>
         <span class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
-        <div><h3>Seus dados ficam com você</h3><p>O sistema é instalado na sua própria conta Google. Não guardamos suas informações em nenhum servidor nosso.</p></div>
+        <div><h3>Seus dados ficam com você</h3><p>Tudo fica na sua conta Google. Nenhuma informação é guardada em servidores externos.</p></div>
       </li>
       <li>
         <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-1.2-1-1.4-1-2.5 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.1-4-7.5-9-7.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="7.8" r="1"/></svg></span>
-        <div><h3>Com a sua cara</h3><p>No sistema personalizado, sua logo, suas cores e suas propostas em PDF com a identidade da sua empresa.</p></div>
+        <div><h3>Identidade da sua empresa</h3><p>No sistema personalizado, sua logo e suas cores em todas as telas e nos orçamentos em PDF.</p></div>
       </li>
       <li>
         <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 10h16l-1.5-5h-13L4 10Zm0 0v9h16v-9M9 19v-5h6v5"/></svg></span>
-        <div><h3>Pensado para pequenos negócios</h3><p>Feito para MEI, ME e EPP. Simples de usar, sem a complicação de sistemas de empresa grande.</p></div>
+        <div><h3>Pensado para pequenos negócios</h3><p>Desenvolvido para MEI, ME e EPP: completo no que importa e simples de usar.</p></div>
       </li>
       <li>
         <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M9 11h.01M12 11h.01M15 11h.01"/></svg></span>
-        <div><h3>Atendimento de gente de verdade</h3><p>Instalação, treinamento e suporte direto pelo WhatsApp, com quem criou o seu sistema.</p></div>
+        <div><h3>Atendimento especializado</h3><p>Instalação, treinamento e suporte pelo WhatsApp, com a equipe que desenvolveu o seu sistema.</p></div>
       </li>
     </ul>
   </div>
@@ -504,7 +528,7 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
 <section class="galeria" id="exemplos">
   <div class="wrap">
     <h2>Veja como pode ficar</h2>
-    <p class="texto">Todos estes exemplos são do Sistema Personalizado: o mesmo motor, com a cara de cada negócio. Escolha um abaixo. As empresas e os números são fictícios, criados só para mostrar as possibilidades.</p>
+    <p class="texto">Exemplos do Sistema de Gestão Personalizado, adaptado à identidade de cada negócio. Empresas e valores fictícios.</p>
 
     <div class="paleta" role="tablist" aria-label="Exemplos de sistemas">
       <button class="tinta-btn" role="tab" style="--c:#C2185B" aria-selected="true" aria-controls="c1" id="t1">Confeitaria</button>
@@ -593,7 +617,7 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
       <div class="legenda">
         <h3>Quanto custa cada bolo?</h3>
         <p>A confeitaria cadastra o preço que pagou em cada ingrediente e o sistema calcula o custo da receita, o lucro e a margem. Mudou o preço do chocolate? Todas as receitas se atualizam.</p>
-        <span class="tag" style="background:#FCE7EF;color:#9C1048">Sistema Personalizado + módulo extra</span>
+        <span class="tag" style="background:#FCE7EF;color:#9C1048">Gestão Personalizado + módulo extra</span>
       </div>
     </div>
 
@@ -644,7 +668,7 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
       <div class="legenda">
         <h3>Orçamentos com a sua marca</h3>
         <p>A oficina monta o orçamento em poucos cliques e o sistema gera um PDF pronto para mandar pelo WhatsApp, com logo, cores e numeração automática. Depois, é só acompanhar se o cliente aprovou.</p>
-        <span class="tag" style="background:#FBE4E2;color:#8C1D18">Sistema Personalizado</span>
+        <span class="tag" style="background:#FBE4E2;color:#8C1D18">Sistema de Gestão Personalizado</span>
       </div>
     </div>
 
@@ -702,7 +726,7 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
       <div class="legenda">
         <h3>Para quem presta serviço como PJ</h3>
         <p>O Rafael atende várias empresas. No painel ele vê na hora quanto tem em conta, o que vence hoje, o que vai entrar nos próximos dias e quem está atrasado no pagamento. Tudo com a marca dele.</p>
-        <span class="tag" style="background:#E2F3F1;color:#0B5A54">Sistema Personalizado</span>
+        <span class="tag" style="background:#E2F3F1;color:#0B5A54">Sistema de Gestão Personalizado</span>
       </div>
     </div>
 
@@ -742,7 +766,7 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
       <div class="legenda">
         <h3>A semana inteira num olhar</h3>
         <p>A Bia vê no calendário o que entrou, o que saiu e o que vence em cada dia. Assim ela nunca esquece o aluguel e sabe se a semana fechou no azul.</p>
-        <span class="tag" style="background:#F1EAFB;color:#4E2A86">Sistema Personalizado</span>
+        <span class="tag" style="background:#F1EAFB;color:#4E2A86">Sistema de Gestão Personalizado</span>
       </div>
     </div>
   </div>
@@ -756,42 +780,45 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
 
     <div class="planos">
       <article class="plano">
-        <h3>Sistema Financeiro Geral</h3>
-        <p class="para">Para quem quer organizar as contas e começar já.</p>
+        <span class="plano-ic"><svg viewBox="0 0 24 24"><path d="M4 7h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1zM4 7l11-3v3M16 13.5h.01"/></svg></span>
+        <h3>Sistema de Gestão Financeira</h3>
+        <p class="para">Para quem quer organizar as finanças e começar rapidamente.</p>
         <p class="preco"><small>R$</small>545</p>
         <p class="uma">pagamento único</p>
         <ul>
           <li>Painel com valor em conta, o que vence hoje, próximos 5 dias e vencidos</li>
           <li>Lançamentos simples, parcelados, no cartão e recorrentes</li>
           <li>Calendário do mês e da semana</li>
-          <li>Cadastros e 1 cartão de crédito</li>
+          <li>Cadastro de clientes e fornecedores</li>
+          <li>Administração e acompanhamento de 1 cartão de crédito</li>
           <li>Instalação, treinamento e 30 dias de garantia</li>
         </ul>
-        <a class="btn btn-tinta wpp" href="#contato" data-msg="Olá! Vi o site do Moneta Lab e tenho interesse no Sistema Financeiro Geral.">Quero o Geral</a>
+        <a class="btn btn-tinta wpp" href="#contato" data-msg="Olá! Vi o site do Moneta Lab e tenho interesse no Sistema de Gestão Financeira.">Quero este sistema</a>
       </article>
 
       <article class="plano estrela">
         <span class="fita">Feito sob medida</span>
-        <h3>Sistema Financeiro e Orçamentário Personalizado</h3>
-        <p class="para">Para quem quer um sistema com a cara da empresa, financeiro e propostas juntos.</p>
+        <span class="plano-ic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-1.2-1-1.4-1-2.5 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.1-4-7.5-9-7.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="7.8" r="1"/></svg></span>
+        <h3>Sistema de Gestão Personalizado</h3>
+        <p class="para">Para empresas que precisam de um sistema adaptado à sua rotina.</p>
         <p class="preco"><small>R$</small>1.899</p>
         <p class="uma">pagamento único</p>
         <ul>
-          <li>Tudo do Geral, com até 3 cartões de crédito</li>
-          <li>Sua logo e suas cores em todo o sistema</li>
-          <li>Orçamentos e propostas em PDF com a sua marca</li>
+          <li>Módulo financeiro completo</li>
+          <li>Módulo orçamentário completo (para serviços e mercadorias)</li>
+          <li>Sua logo, suas cores e seu orçamento personalizado para o cliente</li>
           <li>Análise DRE gerencial e histórico de alterações</li>
           <li>Usuários com permissões (com Google Workspace)</li>
           <li>Instalação, treinamento e 30 dias de garantia</li>
         </ul>
-        <a class="btn btn-ouro wpp" href="#contato" data-msg="Olá! Vi o site do Moneta Lab e tenho interesse no Sistema Personalizado.">Quero o Personalizado</a>
+        <a class="btn btn-ouro wpp" href="#contato" data-msg="Olá! Vi o site do Moneta Lab e tenho interesse no Sistema de Gestão Personalizado.">Quero este sistema</a>
       </article>
     </div>
 
     <div class="modulos">
       <div>
         <strong>Módulos extras</strong>
-        <p>Precisa de algo a mais, como custo por receita ou centro de custo? Criamos módulos novos para o seu sistema.</p>
+        <p>Necessidades específicas, como custo por produto ou centro de custo, podem ser atendidas com módulos desenvolvidos sob orçamento.</p>
       </div>
       <a class="btn btn-tinta wpp" href="#contato" data-msg="Olá! Vi o site do Moneta Lab e queria um orçamento de módulo extra.">Pedir orçamento</a>
     </div>
@@ -800,14 +827,15 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
       <h3>Compare os sistemas</h3>
       <div class="tabela-scroll">
         <table class="comp">
-          <thead><tr><th scope="col">Recurso</th><th scope="col">Geral</th><th scope="col">Personalizado</th></tr></thead>
+          <thead><tr><th scope="col">Recurso</th><th scope="col">Gestão Financeira</th><th scope="col">Gestão Personalizado</th></tr></thead>
           <tbody>
             <tr><td>Painel financeiro</td><td class="sim">Sim</td><td class="sim">Sim</td></tr>
             <tr><td>Lançamentos simples, parcelados, no cartão e recorrentes</td><td class="sim">Sim</td><td class="sim">Sim</td></tr>
             <tr><td>Calendário do mês e da semana</td><td class="sim">Sim</td><td class="sim">Sim</td></tr>
+            <tr><td>Cadastro de clientes e fornecedores</td><td class="sim">Sim</td><td class="sim">Sim</td></tr>
             <tr><td>Cartões de crédito</td><td>1</td><td>Até 3</td></tr>
             <tr><td>Sua logo e suas cores</td><td class="nao">Não</td><td class="sim">Sim</td></tr>
-            <tr><td>Orçamentos e propostas em PDF</td><td class="nao">Não</td><td class="sim">Sim</td></tr>
+            <tr><td>Módulo orçamentário (serviços e mercadorias)</td><td class="nao">Não</td><td class="sim">Sim</td></tr>
             <tr><td>Análise DRE gerencial</td><td class="nao">Não</td><td class="sim">Sim</td></tr>
             <tr><td>Histórico de alterações</td><td class="nao">Não</td><td class="sim">Sim</td></tr>
             <tr><td>Usuários com permissões</td><td class="nao">Não</td><td>Sim, com Google Workspace</td></tr>
@@ -826,10 +854,10 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
   <div class="wrap">
     <h2>Como funciona</h2>
     <ol class="passos">
-      <li><h3>Conversa</h3><p>Você conta pelo WhatsApp como funciona o seu negócio e o que precisa controlar.</p></li>
-      <li><h3>Criação</h3><p>Montamos o sistema com o que combinamos: sua marca, suas categorias, seu jeito.</p></li>
-      <li><h3>Instalação</h3><p>Instalamos tudo na sua conta Google e ensinamos você a usar, passo a passo.</p></li>
-      <li><h3>Pronto</h3><p>O sistema é seu, sem mensalidade, com 30 dias de garantia para qualquer ajuste.</p></li>
+      <li><span class="passo-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg></span><h3>Diagnóstico</h3><p>Entendemos a rotina da sua empresa e o que ela precisa controlar.</p></li>
+      <li><span class="passo-ic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-1.2-1-1.4-1-2.5 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.1-4-7.5-9-7.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="7.8" r="1"/></svg></span><h3>Desenvolvimento</h3><p>Configuramos o sistema com a sua marca, suas categorias e seus processos.</p></li>
+      <li><span class="passo-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Implantação</h3><p>Instalamos o sistema na sua conta Google e realizamos o treinamento.</p></li>
+      <li><span class="passo-ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Acompanhamento</h3><p>Você começa a usar com 30 dias de garantia e suporte especializado.</p></li>
     </ol>
   </div>
 </section>
@@ -839,16 +867,16 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
   <div class="wrap">
     <div>
       <h2>Suporte e garantia</h2>
-      <p>Você não fica na mão depois da compra. O atendimento é pelo WhatsApp, de segunda a sexta, das 8h às 17h.</p>
+      <p>O atendimento continua depois da implantação. Suporte pelo WhatsApp, de segunda a sexta, das 8h às 17h.</p>
     </div>
     <div>
       <ul class="regras">
         <li><b>Garantia</b><p>30 dias de garantia em todos os sistemas.</p></li>
-        <li><b>Erros</b><p>Se algo no sistema não funcionar como deveria, a correção é por nossa conta, sem custo.</p></li>
-        <li><b>Chamado avulso</b><p>R$ 60 por chamado, que cobre cerca de 1 hora de atendimento, para dúvidas e ajustes. O valor é sempre avisado antes.</p></li>
-        <li><b>Tempo de resposta</b><p>Nosso objetivo é resolver problemas pequenos em até 24 horas úteis e os maiores em até 48 horas úteis.</p></li>
+        <li><b>Correções</b><p>Qualquer falha de funcionamento do sistema é corrigida sem custo.</p></li>
+        <li><b>Chamado avulso</b><p>R$ 60 por chamado (cerca de 1 hora), para dúvidas e ajustes. O valor é sempre informado antes.</p></li>
+        <li><b>Tempo de resposta</b><p>Até 24 horas úteis para demandas simples e até 48 horas úteis para as mais complexas.</p></li>
       </ul>
-      <p class="aviso"><b>Importante:</b> o chamado avulso não cobre novas funções no sistema. Se você quiser acrescentar algo novo, como um módulo ou uma tela que ainda não existe, fazemos um orçamento à parte.</p>
+      <p class="aviso"><b>Importante:</b> o chamado avulso não inclui novas funcionalidades. Novos módulos ou telas são desenvolvidos mediante orçamento.</p>
     </div>
   </div>
 </section>
@@ -858,14 +886,14 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
   <div class="wrap">
     <h2>Perguntas frequentes</h2>
     <div class="perguntas">
-      <details><summary>Preciso pagar todo mês?</summary><p>Não. O pagamento é único. Você só paga de novo se quiser um chamado avulso ou um módulo novo.</p></details>
-      <details><summary>Onde ficam os meus dados?</summary><p>Na sua própria conta Google. O sistema é instalado lá, e nós não guardamos suas informações em nenhum servidor nosso.</p></details>
-      <details><summary>Preciso ter conta Google?</summary><p>Sim. Uma conta Google comum (Gmail) já funciona. Para ter vários usuários com permissões diferentes, no Sistema Personalizado, é preciso ter o Google Workspace.</p></details>
-      <details><summary>Preciso entender de planilhas?</summary><p>Não. Você usa telas prontas, com botões e formulários. E o treinamento está incluído.</p></details>
-      <details><summary>O sistema emite nota fiscal?</summary><p>Não. A nota fiscal continua sendo emitida no sistema da prefeitura ou da Receita. No Sistema Personalizado, podemos incluir, a pedido, o envio das notas já emitidas.</p></details>
-      <details><summary>Funciona no celular?</summary><p>Sim! Não temos aplicativo para baixar na loja, mas você acessa o sistema pela internet, direto no navegador do celular.</p></details>
-      <details><summary>Como funciona o pagamento?</summary><p>Aceitamos Pix ou cartão. No Sistema Geral, o pagamento é feito antes da entrega. No Personalizado, 50% na aprovação do projeto e 50% na entrega.</p></details>
-      <details><summary>E se eu precisar de algo novo depois?</summary><p>Criamos módulos extras sob orçamento. É só chamar no WhatsApp e contar o que você precisa.</p></details>
+      <details><summary>Preciso pagar todo mês?</summary><p>Não. O pagamento é único. Cobranças adicionais ocorrem apenas para chamados avulsos ou novos módulos.</p></details>
+      <details><summary>Onde ficam os meus dados?</summary><p>Na sua própria conta Google. O sistema é instalado nela, e nenhuma informação é guardada em servidores externos.</p></details>
+      <details><summary>Preciso ter conta Google?</summary><p>Sim. Uma conta Google comum (Gmail) já funciona. Para ter vários usuários com permissões diferentes, no Sistema de Gestão Personalizado, é necessário o Google Workspace.</p></details>
+      <details><summary>Preciso entender de planilhas?</summary><p>Não. O sistema funciona com telas prontas, botões e formulários, e o treinamento está incluído.</p></details>
+      <details><summary>O sistema emite nota fiscal?</summary><p>Não. A nota fiscal continua sendo emitida no sistema da prefeitura ou da Receita. No Sistema de Gestão Personalizado, é possível incluir, a pedido, o envio das notas já emitidas.</p></details>
+      <details><summary>Funciona no celular?</summary><p>Sim. Não é preciso baixar aplicativo: o sistema é acessado pela internet, direto no navegador do celular ou do computador.</p></details>
+      <details><summary>Como funciona o pagamento?</summary><p>Aceitamos Pix ou cartão. No Sistema de Gestão Financeira, o pagamento é feito antes da entrega. No Sistema de Gestão Personalizado, 50% na aprovação do projeto e 50% na entrega.</p></details>
+      <details><summary>E se eu precisar de algo novo depois?</summary><p>Desenvolvemos módulos extras sob orçamento. Basta entrar em contato pelo WhatsApp e descrever a necessidade.</p></details>
     </div>
   </div>
 </section>
@@ -882,7 +910,7 @@ footer.rodape{background:#0c1c36;color:rgba(255,255,255,.55);font-size:.9rem;pad
       <path d="M43 113h14l-3 8h-8z" fill="#9A4E2A"/>
     </svg>
     <h2>Vamos construir o seu sistema?</h2>
-    <p>Chame no WhatsApp e conte um pouco sobre o seu negócio. A primeira conversa não tem compromisso.</p>
+    <p>Fale com a nossa equipe pelo WhatsApp. O primeiro atendimento é gratuito e sem compromisso.</p>
     <a class="btn btn-ouro wpp" href="#contato">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
       Conversar no WhatsApp
